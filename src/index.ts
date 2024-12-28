@@ -30,7 +30,7 @@ class App {
 
   protected routes (): void {
     this.app.route('/').get((req: Request, res: Response) => {
-      res.send('Hello World!')
+      res.send('Leads API is running!')
     })
     this.app.use('/api/v1/leads', leadRouter)
   }
