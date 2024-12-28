@@ -32,7 +32,7 @@ class App {
     this.app.route('/').get((req: Request, res: Response) => {
       res.send('Hello World!')
     })
-    this.app.use('/api/v1/leads', leadRouter) // Add this line to use the router
+    this.app.use('/api/v1/leads', leadRouter)
   }
 }
 
