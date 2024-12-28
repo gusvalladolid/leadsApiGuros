@@ -1,7 +1,6 @@
 import express, { Application, Request, Response } from 'express'
 import Database from './configs/database'
 import leadRouter from './routes/leadRouter'
-// import leadsRouter from './routes/lead'
 
 class App {
   public app: Application
