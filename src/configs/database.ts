@@ -6,7 +6,7 @@ dotenv.config()
 class Database {
   public sequelize: Sequelize | undefined
 
-  /*
+  /* Local Database Env Variables
   private readonly POSTGRES_DB = process.env.POSTGRES_DB as string
   private readonly POSTGRES_USER = process.env.POSTGRES_USER as string
   private readonly POSTGRES_PASSWORD = process.env.POSTGRES_PASSWORD as string
@@ -41,3 +41,26 @@ class Database {
 }
 
 export default Database
+
+/* Local Database Connection
+private async connectToPostgres (): Promise<void> {
+  this.sequelize = new Sequelize(this.POSTGRES_DB_LINK, {
+    dialect: 'postgres',
+    host: this.POSTGRES_HOST,
+    port: this.POSTGRES_PORT,
+    username: this.POSTGRES_USER,
+    password: this.POSTGRES_PASSWORD,
+    database: this.POSTGRES_DB,
+    models: [Lead],
+    protocol: 'postgres',
+    dialectOptions: {
+      ssl: {
+        require: true,
+        rejectUnauthorized: false
+      }
+    },
+    models: [Lead]
+  })
+  await this.sequelize.authenticate()
+}
+  */
