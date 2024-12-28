@@ -28,6 +28,7 @@ export class LeadRepository implements ILeadRepository {
     }
   }
 
+  // Chance to Patch
   async updateStatus (phoneNumber: number, newStatus: Status): Promise<void> {
     try {
       const leadToUpdate = await Lead.findByPk(phoneNumber)
