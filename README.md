@@ -15,7 +15,7 @@ This project is a backend application designed to manage leads for a car insuran
 
 1. Clone the repository:
 ```
-git clone https://gitlab.com/personalprojects4494152/leadapiguros.git
+git clone https://github.com/gusvalladolid/leadsApiGuros.git
 cd <repository-folder>
 ```
 2. Install dependencies:
