@@ -28,7 +28,13 @@ class Database {
       username: this.POSTGRES_USER,
       password: this.POSTGRES_PASSWORD,
       database: this.POSTGRES_DB,
-      models: [Lead]
+      models: [Lead],
+      dialectOptions: {
+        ssl: {
+          require: true,
+          rejectUnauthorized: false
+        }
+      }
     })
     await this.sequelize.authenticate()
   }
