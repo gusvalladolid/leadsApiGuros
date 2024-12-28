@@ -34,7 +34,7 @@ class LeadController {
       await new LeadRepository().updateStatus(+phoneNumber, status)
       res.status(200).json({
         message: 'Lead status updated successfully',
-        status: 'Updated!'
+        status: '200'
       })
     } catch (error) {
       res.status(500).json({
@@ -50,7 +50,7 @@ class LeadController {
       await new LeadRepository().delete(+phoneNumber)
       res.status(200).json({
         message: 'Lead deleted successfully',
-        status: 'Deleted!'
+        status: '200'
       })
     } catch (error) {
       res.status(500).json({
@@ -68,14 +68,14 @@ class LeadController {
         const lead = await new LeadRepository().findByPhoneNumber(+phoneNumber)
         res.status(200).json({
           message: 'Successfully retrieved lead',
-          status: 'Ok!',
+          status: '200',
           data: lead
         })
       } else if (email !== undefined) {
         const lead = await new LeadRepository().findyByEmail(String(email))
         res.status(200).json({
           message: 'Successfully retrieved lead',
-          status: 'Ok!',
+          status: '200',
           data: lead
         })
       } else {
@@ -97,7 +97,7 @@ class LeadController {
       const leads = await new LeadRepository().getAll()
       res.status(200).json({
         message: 'Successfully retrieved leads',
-        status: 'Ok!',
+        status: '200',
         data: leads
       })
     } catch (error) {
@@ -112,9 +112,15 @@ class LeadController {
     try {
       const { status } = req.params
       const leads = await new LeadRepository().getByStatus(status as Status)
+      if (leads.length === 0) {
+        res.status(404).json({
+          message: 'Not Found',
+          status: '404'
+        })
+      }
       res.status(200).json({
         message: 'Successfully retrieved leads',
-        status: 'Ok!',
+        status: '200',
         data: leads
       })
     } catch (error) {
